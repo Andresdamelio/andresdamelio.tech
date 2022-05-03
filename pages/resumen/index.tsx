@@ -1,7 +1,6 @@
-import { GetStaticProps, NextPage } from 'next'
-
-import { Layout } from 'layout';
 import { Image, Profile } from 'interfaces';
+import { Layout } from 'layout';
+import { GetStaticProps, NextPage } from 'next';
 import { getProfileInfo } from 'utils';
 
 interface Props {
@@ -9,10 +8,10 @@ interface Props {
   banner: Image
 }
 
-const AboutPage: NextPage<Props> = ({ banner, profile }) => {
+const Resume: NextPage<Props> = ({ banner, profile }) => {
   return (
     <Layout banner={banner} profile={profile}>
-      <div>AboutPage</div>
+      <div>Resume</div>
     </Layout>
   )
 }
@@ -28,5 +27,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 };
 
-
-export default AboutPage;
+export default Resume

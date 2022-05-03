@@ -1,1 +1,11 @@
-export { default as Banner } from './Banner';
+export { default as Body } from './layout/Body';
+export { default as Banner } from './image/Banner';
+export { default as Button } from './button/Button';
+export { default as NavBar } from './navbar/NavBar';
+export { default as Header } from './layout/Header';
+export { default as Content } from './layout/Content';
+export { default as NavBarItem } from './navbar/NavBarItem';
+export { default as ToggleButton } from './button/ToggleButton';
+export { default as PictureProfile } from './image/PictureProfile';
+export { default as SocialNetworkItem } from './social/SocialNetworkItem';
+export { default as SocialNetworkList } from './social/SocialNetworkList';
