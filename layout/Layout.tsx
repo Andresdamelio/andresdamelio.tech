@@ -7,7 +7,9 @@ const Layout = ({ banner, children, profile }: LayoutProps) => {
       <Banner banner={banner} />
       <div className="container mx-auto relative pt-60 px-4 pb-24 md:pb-0">
         <Header profile={profile} />
-        <Body />
+        <Body>
+          { children }
+        </Body>
       </div>
     </main>
   )

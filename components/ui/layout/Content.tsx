@@ -1,8 +1,12 @@
-import React from 'react'
+import { ReactElement } from 'react';
 
-const Content = () => {
+interface Props {
+  children: ReactElement | ReactElement[];
+}
+
+const Content = ({ children }: Props) => {
   return (
-    <div>Content</div>
+    <div>{ children }</div>
   )
 }
 

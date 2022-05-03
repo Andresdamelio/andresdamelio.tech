@@ -1,3 +1,23 @@
+html,
+body {
+  font-size: 15px;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #fabf2b;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #ccc;
+  border-radius: 10px;
+}
+
 .header-social-networks {
   color: #fabf2b;
   padding: 7px;

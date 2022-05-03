@@ -2,6 +2,7 @@ export { default as Body } from './layout/Body';
 export { default as Banner } from './image/Banner';
 export { default as Button } from './button/Button';
 export { default as NavBar } from './navbar/NavBar';
+export { default as Title } from './text/Title';
 export { default as Header } from './layout/Header';
 export { default as Content } from './layout/Content';
 export { default as NavBarItem } from './navbar/NavBarItem';
