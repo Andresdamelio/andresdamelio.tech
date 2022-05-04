@@ -1,3 +1,4 @@
+export { default as Tag } from './tag/Tag';
 export { default as Body } from './layout/Body';
 export { default as Banner } from './image/Banner';
 export { default as Button } from './button/Button';

@@ -1,12 +1,10 @@
 import { api } from 'api';
 import { Profile } from 'interfaces';
 
-
 export const getProfileInfo = async () => {
   try {
     const { data } = await api.get<Profile>('/profile');
     const { banner, ...profile } = data;
-
 
     return {
       banner: {
@@ -28,12 +26,12 @@ export const getProfileInfo = async () => {
         },
         curriculum: {
           id: profile.curriculum.id,
-          url: profile.curriculum.url
+          url: profile.curriculum.url,
         },
-        social_medias: profile.social_medias
-      }
-    }
+        social_medias: profile.social_medias,
+      },
+    };
   } catch {
-    return null
-  };
-}
+    return null;
+  }
+};

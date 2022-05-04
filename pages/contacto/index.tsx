@@ -1,4 +1,4 @@
-import { GetStaticProps, NextPage } from 'next'
+import { GetStaticProps, NextPage } from 'next';
 
 import { Layout } from 'layout';
 import { Image, Profile } from 'interfaces';
@@ -6,7 +6,7 @@ import { getProfileInfo } from 'utils';
 
 interface Props {
   profile: Profile;
-  banner: Image
+  banner: Image;
 }
 
 const ContactPage: NextPage<Props> = ({ banner, profile }) => {
@@ -14,8 +14,8 @@ const ContactPage: NextPage<Props> = ({ banner, profile }) => {
     <Layout banner={banner} profile={profile}>
       <div>ContactPage</div>
     </Layout>
-  )
-}
+  );
+};
 
 export const getStaticProps: GetStaticProps = async () => {
   const data = await getProfileInfo();
@@ -23,10 +23,9 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       profile: data?.profile,
-      banner: data?.banner
-    }
-  }
+      banner: data?.banner,
+    },
+  };
 };
-
 
 export default ContactPage;

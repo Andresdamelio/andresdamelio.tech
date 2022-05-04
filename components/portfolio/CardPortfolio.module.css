@@ -1,0 +1,31 @@
+.card img {
+  @apply transition-transform duration-200 ease-in-out;
+}
+
+.card .work::after, .card .work::before {
+  content: "";
+  @apply absolute inset-0 z-10 opacity-0 transition duration-300 ease-in-out;
+}
+
+.card .work::before {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.card .work::after {
+  background-image: url('/images/rocket.svg');
+  @apply w-16 h-16 bg-no-repeat bg-contain my-14 mx-auto;
+}
+
+.card-footer {
+  @apply transition duration-300 ease-in-out;
+}
+
+.card:hover img {
+  @apply scale-105;
+}
+
+.card:hover .work::before,
+.card:hover .work::after,
+.card:hover .card-footer {
+  @apply opacity-100;
+}

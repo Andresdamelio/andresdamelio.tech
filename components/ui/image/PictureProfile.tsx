@@ -1,22 +1,23 @@
-import { Image } from 'interfaces';
 import NextImage from 'next/image';
+
+import { Image } from 'interfaces';
 
 interface Props {
   image: Image;
-};
+}
 
 const PictureProfile = ({ image }: Props) => {
   return (
-    <div className="-mt-16 mb-4 md:mb-0 h-40 w-40 rounded-full overflow-hidden">
+    <div className="-mt-16 mb-4 h-40 w-40 overflow-hidden rounded-full md:mb-0">
       <NextImage
         src={image.url}
         alt={image.alternativeText}
         width={150}
         height={150}
-        className="w-full h-full border-solid border-5 border-azure-100 dark:border-dark-500 rounded-full"
+        className="h-full w-full rounded-full border-5 border-solid border-azure-100 dark:border-dark-500"
       />
     </div>
-  )
+  );
 };
 
-export default PictureProfile
+export default PictureProfile;

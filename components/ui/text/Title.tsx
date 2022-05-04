@@ -10,21 +10,37 @@ interface Props {
   aditionalClass?: string;
   hasIcon?: boolean;
   icon?: string;
-};
+}
 
-let classBase: string = 'font-medium text-black-300 dark:text-white font-mitr leading-tight';
+const classBase =
+  'font-medium text-black-300 dark:text-white font-mitr leading-tight';
 
-const Title = ({ type, text, size, hasBorder, aditionalClass, hasIcon, icon }: Props) => {
-  const listClass = joinClasses(classBase, getClass(size), hasBorder ? 'border-line' : '', (aditionalClass || ''));
+const Title = ({
+  type,
+  text,
+  size,
+  hasBorder,
+  aditionalClass,
+  hasIcon,
+  icon,
+}: Props) => {
+  const listClass = joinClasses(
+    classBase,
+    getClass(size),
+    hasBorder ? 'border-line' : '',
+    aditionalClass || ''
+  );
 
-  const element = React.createElement<Element>(type)
+  const element = React.createElement<Element>(type);
 
   return (
     <element.type className={listClass}>
-      {hasIcon && <span className={`icon icon-${icon} text-3xl text-yellow-300 mr-1`} />}
+      {hasIcon && (
+        <span className={`icon icon-${icon} mr-3 text-3xl text-yellow-300`} />
+      )}
       {text}
     </element.type>
-  )
+  );
 };
 
 export default Title;

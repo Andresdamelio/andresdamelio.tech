@@ -5,16 +5,16 @@ import SocialNetworkItem from './SocialNetworkItem';
 
 interface Props {
   socials: SocialMedia[];
-};
+}
 
 const SocialNetworkList = ({ socials }: Props) => {
   return (
     <>
-      {socials.map(social => (
+      {socials.map((social) => (
         <SocialNetworkItem social={social} key={uuidv4()} />
       ))}
     </>
-  )
+  );
 };
 
-export default SocialNetworkList
+export default SocialNetworkList;

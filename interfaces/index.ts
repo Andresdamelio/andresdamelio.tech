@@ -3,3 +3,4 @@ export * from './about';
 export * from './global';
 export * from './resume';
 export * from './profile';
+export * from './portfolio';

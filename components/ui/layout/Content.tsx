@@ -5,9 +5,7 @@ interface Props {
 }
 
 const Content = ({ children }: Props) => {
-  return (
-    <div>{ children }</div>
-  )
-}
+  return <div>{children}</div>;
+};
 
-export default Content
+export default Content;

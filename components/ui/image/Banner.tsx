@@ -9,11 +9,17 @@ interface Props {
 
 const Banner = ({ banner }: Props) => {
   return (
-    <div className="h-[19rem] absolute top-0 left-0 w-full">
+    <div className="absolute top-0 left-0 h-[19rem] w-full">
       <ToggleButton />
-      <NextImage src={banner.url} alt={banner.alternativeText} layout="fill" className="w-full h-full object-cover opacity-70" priority/>
+      <NextImage
+        src={banner.url}
+        alt={banner.alternativeText}
+        layout="fill"
+        className="h-full w-full object-cover opacity-70"
+        priority
+      />
     </div>
-  )
-}
+  );
+};
 
 export default Banner;

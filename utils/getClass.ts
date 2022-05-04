@@ -1,4 +1,4 @@
-import { ObjectString } from "interfaces"
+import { ObjectString } from 'interfaces';
 
 const sizes: ObjectString = {
   xl: 'text-xl',
@@ -7,13 +7,12 @@ const sizes: ObjectString = {
   '4xl': 'text-4xl',
   '5xl': 'text-5xl',
   '6xl': 'text-6xl',
-}
-
+};
 
 export const getClass = (size: string): string => {
-  return sizes[size]
+  return sizes[size];
 };
 
 export const joinClasses = (...classes: string[]): string => {
-  return classes.join(' ')
+  return classes.join(' ');
 };

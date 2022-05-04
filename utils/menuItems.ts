@@ -1,4 +1,4 @@
-import { MenuItem } from "interfaces";
+import { MenuItem } from 'interfaces';
 
 export const items: MenuItem[] = [
   {
@@ -25,5 +25,5 @@ export const items: MenuItem[] = [
     title: 'Contacto',
     path: '/contacto',
     icon: 'icon-contact-1',
-  }
+  },
 ];
