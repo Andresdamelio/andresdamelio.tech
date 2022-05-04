@@ -1,3 +1,5 @@
+import styles from './CardResume.module.css';
+
 import { Title } from 'components/ui';
 import { CardCourse, CardEducation, CardExperience } from 'components/resume';
 
@@ -21,7 +23,7 @@ const CardResume = ({
   company,
 }: Props) => {
   return (
-    <article className="item ml-4 px-6 pb-2 pt-0">
+    <article className={'ml-4 px-6 pb-2 pt-0 ' + styles.item}>
       <Title
         type="h3"
         text={`${title} ${company ? ' - ' + company : ''}`}
