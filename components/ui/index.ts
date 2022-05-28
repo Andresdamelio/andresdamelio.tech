@@ -1,9 +1,12 @@
 export { default as Tag } from './tag/Tag';
+export { default as Title } from './text/Title';
 export { default as Body } from './layout/Body';
+export { default as Input } from './input/Input';
+export { default as Modal } from './modal/Modal';
 export { default as Banner } from './image/Banner';
+export { default as Loader } from './loader/Loader';
 export { default as Button } from './button/Button';
 export { default as NavBar } from './navbar/NavBar';
-export { default as Title } from './text/Title';
 export { default as Header } from './layout/Header';
 export { default as Content } from './layout/Content';
 export { default as NavBarItem } from './navbar/NavBarItem';

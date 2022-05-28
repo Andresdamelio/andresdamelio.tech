@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from 'next';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 
 import { api } from 'api';
 import { Layout } from 'layout';
@@ -10,8 +10,16 @@ import {
   transformDatesToString,
   sortByDate,
   getFormattedDate,
+  destruct,
 } from 'utils';
-import { Course, Education, Experience, Image, Profile } from 'interfaces';
+import {
+  Course,
+  Education,
+  Experience,
+  Image,
+  Profile,
+  Resume,
+} from 'interfaces';
 
 interface Props {
   profile: Profile;
@@ -43,7 +51,7 @@ const Resume: NextPage<Props> = ({
         />
         {educations.map(({ degree, institute, from, to }) => (
           <CardResume
-            key={uuidv4()}
+            key={nanoid()}
             type="educations"
             title={degree}
             date={transformDatesToString(from, to)}
@@ -65,7 +73,7 @@ const Resume: NextPage<Props> = ({
         {sortByDate(experiences).map(
           ({ position, from, to, description, company }) => (
             <CardResume
-              key={uuidv4()}
+              key={nanoid()}
               type="experiences"
               title={position}
               date={transformDatesToString(from, to)}
@@ -88,7 +96,7 @@ const Resume: NextPage<Props> = ({
         />
         {courses.map(({ name, platform, credential, date }) => (
           <CardResume
-            key={uuidv4()}
+            key={nanoid()}
             type="courses"
             title={name}
             date={getFormattedDate(date)}
@@ -103,17 +111,27 @@ const Resume: NextPage<Props> = ({
 
 export const getStaticProps: GetStaticProps = async () => {
   const data = await getProfileInfo();
-  const {
-    data: { educations, experiences, courses },
-  } = await api.get('/resume');
+  const { data: resume } = await api.get<Resume>('/resume');
+
+  const educationList = resume.educations.map((education) =>
+    destruct(education, ['degree', 'institute', 'from', 'to'])
+  );
+
+  const experiencieList = resume.experiences.map((experience) =>
+    destruct(experience, ['position', 'from', 'to', 'description', 'company'])
+  );
+
+  const courseList = resume.courses.map((course) =>
+    destruct(course, ['name', 'platform', 'credential', 'date'])
+  );
 
   return {
     props: {
       profile: data?.profile,
       banner: data?.banner,
-      educations,
-      experiences,
-      courses,
+      educations: educationList,
+      experiences: experiencieList,
+      courses: courseList,
     },
   };
 };

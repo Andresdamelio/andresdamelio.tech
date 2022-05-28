@@ -2,8 +2,9 @@
   @apply transition-transform duration-200 ease-in-out;
 }
 
-.card .work::after, .card .work::before {
-  content: "";
+.card .work::after,
+.card .work::before {
+  content: '';
   @apply absolute inset-0 z-10 opacity-0 transition duration-300 ease-in-out;
 }
 
@@ -13,7 +14,7 @@
 
 .card .work::after {
   background-image: url('/images/rocket.svg');
-  @apply w-16 h-16 bg-no-repeat bg-contain my-14 mx-auto;
+  @apply my-14 mx-auto h-16 w-16 bg-contain bg-no-repeat;
 }
 
 .card-footer {

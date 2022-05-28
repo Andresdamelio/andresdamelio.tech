@@ -11,21 +11,33 @@ interface Props {
 
 const CardPortfolio = ({ project }: Props) => {
   return (
-    <div className={'w-full h-48 md:w-1/3 my-2 px-0 md:px-3 relative ' + styles.card}>
+    <div
+      className={
+        'relative my-2 h-48 w-full px-0 md:w-1/3 md:px-3 ' + styles.card
+      }
+    >
       <Link href={`/portafolio/${project.slug}`}>
-        <a className={'block relative bg-azure-100 mb-4 rounded-lg shadow-md hover:shadow-xl overflow-hidden h-full ' + styles.work}>
+        <a
+          className={
+            'relative mb-4 block h-full overflow-hidden rounded-lg bg-azure-100 shadow-md hover:shadow-xl ' +
+            styles.work
+          }
+        >
           <Image
-            layout='fill'
-            className="w-full h-full"
-            objectFit='cover'
+            layout="fill"
+            className="h-full w-full"
+            objectFit="cover"
             src={project.thumbnail.url}
             alt={project.thumbnail.alternativeText}
           />
           <div
-            className={'w-full absolute bottom-2 p-2 z-10 opacity-0 flex justify-between ' + styles['card-footer']}
+            className={
+              'absolute bottom-2 z-10 flex w-full justify-between p-2 opacity-0 ' +
+              styles['card-footer']
+            }
           >
             <h2 className="title text-base font-bold leading-5 text-white">
-              { project.name }
+              {project.name}
             </h2>
             <Tag
               name={project.category.name}
@@ -34,8 +46,8 @@ const CardPortfolio = ({ project }: Props) => {
           </div>
         </a>
       </Link>
-  </div>
-  )
-}
+    </div>
+  );
+};
 
-export default CardPortfolio
+export default CardPortfolio;

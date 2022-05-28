@@ -13,7 +13,7 @@ const Button = ({ type, text, hasIcon, icon, link, flex, action }: Props) => {
     <button
       className={
         'btn-primary inline-flex justify-center rounded border-yellow-300 bg-yellow-300 text-base font-medium leading-4 text-black-300' +
-        (flex ? '' : 'w-full md:w-1/3')
+        (flex ? ' ' : ' w-full md:w-1/3')
       }
       onClick={action}
     >

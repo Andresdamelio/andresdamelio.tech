@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from 'next';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 
 import { api } from 'api';
 import { Layout } from 'layout';
@@ -26,7 +26,7 @@ const AboutPage: NextPage<Props> = ({ banner, profile, about }) => {
       <Title type="h2" text="Lo que hago" size="3xl" hasBorder={true} />
       <section className="mt-4 flex flex-wrap">
         {about.skills.map((skill) => (
-          <CardAbout skill={skill} key={uuidv4()} />
+          <CardAbout skill={skill} key={nanoid()} />
         ))}
       </section>
     </Layout>

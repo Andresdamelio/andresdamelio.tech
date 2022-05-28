@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 
 import { SocialMedia } from 'interfaces';
 import SocialNetworkItem from './SocialNetworkItem';
@@ -11,7 +11,7 @@ const SocialNetworkList = ({ socials }: Props) => {
   return (
     <>
       {socials.map((social) => (
-        <SocialNetworkItem social={social} key={uuidv4()} />
+        <SocialNetworkItem social={social} key={nanoid()} />
       ))}
     </>
   );

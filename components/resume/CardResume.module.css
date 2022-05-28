@@ -1,9 +1,9 @@
 .item {
-  @apply relative border-l border-solid border-azure-50; 
+  @apply relative border-l border-solid border-azure-50;
 }
 
 .item::before {
   content: '';
-  @apply block w-2.5 h-2.5 absolute top-0 -left-1.5 rounded-xl bg-yellow-300;
+  @apply absolute top-0 -left-1.5 block h-2.5 w-2.5 rounded-xl bg-yellow-300;
   box-shadow: 0 0 0 0.1875rem rgba(255, 150, 86, 0.4);
 }

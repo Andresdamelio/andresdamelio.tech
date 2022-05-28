@@ -70,24 +70,6 @@ body::-webkit-scrollbar-track {
   background-image: url('/images/contrast.webp');
 }
 
-.item {
-  position: relative;
-  border-left: 1px solid #e2e8f0;
-}
-
-.item::before {
-  content: '';
-  display: block;
-  width: 10px;
-  height: 10px;
-  background: #fabf2b;
-  position: absolute;
-  top: 0;
-  left: -5px;
-  border-radius: 10px;
-  box-shadow: 0 0 0 0.1875rem rgba(255, 150, 86, 0.4);
-}
-
 @media (min-width: 576px) {
   .container {
     max-width: 540px !important;
