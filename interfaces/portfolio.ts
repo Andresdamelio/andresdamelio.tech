@@ -1,4 +1,4 @@
-import { Image } from 'interfaces';
+import { Image, Category } from 'interfaces';
 
 export interface Project {
   id: number;
@@ -24,11 +24,6 @@ export interface ProjectShort {
   slug: string;
   category: Category;
   thumbnail: Thumbnail;
-}
-
-export interface Category {
-  id: number;
-  name: string;
 }
 
 export interface Technology {

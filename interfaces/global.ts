@@ -5,3 +5,8 @@ export interface ObjectString {
 export interface ObjectAny {
   [key: string]: any;
 }
+
+export interface Category {
+  id: number;
+  name: string;
+}

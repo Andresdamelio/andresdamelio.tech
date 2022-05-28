@@ -26,7 +26,7 @@ const PortfolioPage: NextPage<Props> = ({
   const [projectsFiltered, setProjectsFiltered] =
     useState<ProjectShort[]>(projects);
 
-  const handleFilter = (id: number) => {
+  const handleFilter = (id: number): void => {
     const projectsFiltered =
       id === 1
         ? projects
