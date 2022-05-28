@@ -29,9 +29,6 @@ export interface ProjectShort {
 export interface Category {
   id: number;
   name: string;
-  description: null;
-  activeBlog: boolean;
-  activeProjects: boolean;
 }
 
 export interface Technology {

@@ -1,27 +1,49 @@
+import { useState } from 'react';
 import { GetStaticProps, NextPage } from 'next';
+import { nanoid } from 'nanoid';
 
 import { Layout } from 'layout';
-import { Image, Profile, Project } from 'interfaces';
+import { Category, Image, Profile, ProjectShort } from 'interfaces';
 import { getProfileInfo } from 'utils';
 import { api } from 'api';
 import { Title } from 'components/ui';
-import { nanoid } from 'nanoid';
 import { CardPortfolio } from 'components/portfolio';
+import { CategoryList } from 'components/category';
 
 interface Props {
   profile: Profile;
   banner: Image;
-  projects: Project[];
+  projects: ProjectShort[];
+  categories: Category[];
 }
 
-const PortfolioPage: NextPage<Props> = ({ banner, profile, projects }) => {
+const PortfolioPage: NextPage<Props> = ({
+  banner,
+  profile,
+  projects,
+  categories,
+}) => {
+  const [projectsFiltered, setProjectsFiltered] =
+    useState<ProjectShort[]>(projects);
+
+  const handleFilter = (id: number) => {
+    const projectsFiltered =
+      id === 1
+        ? projects
+        : projects.filter((project) => {
+            return project.category.id === id;
+          });
+
+    setProjectsFiltered(projectsFiltered);
+  };
+
   return (
     <Layout banner={banner} profile={profile}>
       <Title type="h1" text="Portafolio" size="3xl" hasBorder={true} />
       <section className="mt-8 flex flex-col flex-wrap md:flex-row">
-        <div className="categories flex w-full overflow-x-scroll px-0 py-4 md:overflow-hidden md:px-3"></div>
+        <CategoryList categories={categories} onSelect={handleFilter} />
         <div className="flex w-full flex-wrap">
-          {projects.map((project) => (
+          {projectsFiltered.map((project) => (
             <CardPortfolio key={nanoid()} project={project} />
           ))}
         </div>
@@ -32,13 +54,18 @@ const PortfolioPage: NextPage<Props> = ({ banner, profile, projects }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const data = await getProfileInfo();
-  const { data: projects } = await api.get<Project[]>('/projects');
+  const { data: projects } = await api.get<ProjectShort[]>('/projects');
+  const { data: categories } = await api.get<Category[]>(
+    '/categories?activeProjects=true&&_sort=created_at:ASC'
+  );
+  const dataCategories = categories.map(({ id, name }) => ({ id, name }));
 
   return {
     props: {
       profile: data?.profile,
       banner: data?.banner,
       projects: projects,
+      categories: dataCategories,
     },
   };
 };
