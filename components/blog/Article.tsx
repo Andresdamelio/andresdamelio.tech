@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { CommentCount } from 'disqus-react';
 
 import { Tag } from 'components/ui';
 import { Article } from 'interfaces';
@@ -38,10 +39,14 @@ const CardArticle = ({ article }: Props) => {
               </div>
               <div className="card-commentary">
                 <span className="icon icon-commentary mr-1 align-text-top"></span>
-                {/* <DisqusCount
-              className="align-text-bottom"
-              :identifier="`/blog/${article.slug}`"
-            /> */}
+                <CommentCount
+                  shortname="andres-damelio"
+                  config={{
+                    url: `/blog/${article.slug}`,
+                    identifier: `/blog/${article.slug}`,
+                    title: article.title,
+                  }}
+                />
               </div>
             </div>
           </div>
