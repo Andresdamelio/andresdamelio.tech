@@ -16,7 +16,7 @@ const NavBarItem = ({ item }: Props) => {
         <a
           className={
             'item-link item-link flex h-full w-full flex-col items-center justify-center font-mitr text-xs font-medium text-black-300 outline-none dark:text-white md:text-lg md:dark:text-black-300' +
-            (item.path === pathname ? ' item-link-active' : '')
+            (pathname.includes(item.path) ? ' item-link-active' : '')
           }
         >
           <span className={'icon flex text-2xl md:text-3xl ' + item.icon} />

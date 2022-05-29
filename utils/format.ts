@@ -1,12 +1,16 @@
 import { ObjectString } from 'interfaces';
 
-export const getFormattedDate = (date: string): string => {
+export const getFormattedDate = (date: string, type?: string): string => {
   const dateFormat = new Date(date);
   dateFormat.setMinutes(
     dateFormat.getMinutes() + dateFormat.getTimezoneOffset()
   );
 
   const options: ObjectString = { year: 'numeric', month: 'long' };
+
+  if (type === "large") {
+    options['day'] =  "numeric"
+  }
 
   return new Intl.DateTimeFormat('es-VE', options).format(dateFormat);
 };
