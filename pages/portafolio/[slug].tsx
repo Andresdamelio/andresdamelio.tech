@@ -1,10 +1,11 @@
-import { api } from 'api';
-import { Article, Image, Profile, Project } from 'interfaces';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import { getProfileInfo } from 'utils';
 import { ParsedUrlQuery } from 'querystring';
+
+import { api } from 'api';
 import { Layout } from 'layout';
+import { getProfileInfo } from 'utils';
 import { Title } from 'components/ui';
+import { Image, Profile, Project } from 'interfaces';
 
 interface IParams extends ParsedUrlQuery {
   slug: string;
@@ -25,10 +26,8 @@ const ProjectPage: NextPage<Props> = ({ profile, banner, project }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data: articles } = await api.get<Article[]>(
-    '/posts?_sort=created_at:DESC'
-  );
-  const paths = articles.map(({ slug }) => ({ params: { slug } }));
+  const { data: projects } = await api.get<Project[]>('/projects');
+  const paths = projects.map(({ slug }) => ({ params: { slug } }));
 
   return {
     paths,
@@ -39,7 +38,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as IParams;
   const data = await getProfileInfo();
-  const { data: project } = await api.get<Article[]>(`/projects?slug=${slug}`);
+  const { data: project } = await api.get<Project[]>(`/projects?slug=${slug}`);
 
   return {
     props: {
