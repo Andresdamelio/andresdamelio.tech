@@ -4,7 +4,8 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { getFormattedDate, getProfileInfo } from 'utils';
 import { ParsedUrlQuery } from 'querystring';
 import { Layout } from 'layout';
-import { Title } from 'components/ui';
+import { ShareSocialList, Title } from 'components/ui';
+import NextImage from 'next/image';
 
 interface IParams extends ParsedUrlQuery {
   slug: string;
@@ -23,6 +24,15 @@ const ArticlePage: NextPage<Props> = ({ profile, banner, post }) => {
       <p className="mt-3 font-roboto text-sm font-thin text-gray-700 dark:text-white">
         Publicado el {getFormattedDate(post.created_at, 'large')}
       </p>
+      <div className="relative mt-6 h-40 md:h-60 lg:h-96">
+        <NextImage
+          layout="fill"
+          src={post.image.url}
+          alt={post.image.alternativeText}
+          className="h-full w-full rounded-2xl"
+        />
+      </div>
+      <ShareSocialList padding="pt-4 pb-6" />
     </Layout>
   );
 };

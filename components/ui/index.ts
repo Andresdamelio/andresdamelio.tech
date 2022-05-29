@@ -12,5 +12,7 @@ export { default as Content } from './layout/Content';
 export { default as NavBarItem } from './navbar/NavBarItem';
 export { default as ToggleButton } from './button/ToggleButton';
 export { default as PictureProfile } from './image/PictureProfile';
+export { default as ShareSocialItem } from './social/ShareSocialItem';
+export { default as ShareSocialList } from './social/ShareSocialList';
 export { default as SocialNetworkItem } from './social/SocialNetworkItem';
 export { default as SocialNetworkList } from './social/SocialNetworkList';
