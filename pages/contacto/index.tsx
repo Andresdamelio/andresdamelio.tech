@@ -4,10 +4,11 @@ import NextImage from 'next/image';
 import { Layout } from 'layout';
 import { Image, ObjectAny, Profile } from 'interfaces';
 import { getProfileInfo } from 'utils';
-import { Button, Input, Loader, Modal } from 'components/ui';
+import { Button, Input, Loader } from 'components/ui';
 import { useForm } from 'hooks/useForm';
 import { api } from 'api';
 import { useState } from 'react';
+import { ModalContact } from 'components/contact';
 
 interface Props {
   profile: Profile;
@@ -185,14 +186,7 @@ const ContactPage: NextPage<Props> = ({ banner, profile }) => {
           </div>
         </div>
         {loading && <Loader opacity="bg-opacity-80 dark:bg-opacity-90" />}
-        <Modal
-          title="Mensaje enviado"
-          message="Su mensaje se ha enviado con éxito. Muchas gracias. En breve recibirá una respuesta."
-          image="message.svg"
-          alt="Imagen de mensaje exitoso"
-          show={show}
-          close={() => setShow(false)}
-        />
+        <ModalContact show={show} close={() => setShow(false)} />
       </>
     </Layout>
   );

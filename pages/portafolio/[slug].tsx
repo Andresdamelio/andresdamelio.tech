@@ -9,6 +9,8 @@ import { Image, Profile, Project } from 'interfaces';
 import { nanoid } from 'nanoid';
 import { Content } from 'components/portfolio';
 import NextImage from 'next/image';
+import { useState } from 'react';
+import ModalGallery from '../../components/portfolio/ModalGallery';
 
 interface IParams extends ParsedUrlQuery {
   slug: string;
@@ -21,9 +23,8 @@ interface Props {
 }
 
 const ProjectPage: NextPage<Props> = ({ profile, banner, project }) => {
-  const showGalery = () => {
-    return true;
-  };
+  const [show, setShow] = useState(false);
+
   return (
     <Layout banner={banner} profile={profile}>
       <Title type="h1" text={project.name} size="3xl" hasBorder={false} />
@@ -94,7 +95,7 @@ const ProjectPage: NextPage<Props> = ({ profile, banner, project }) => {
                 icon="send-1"
                 type="action"
                 flex={true}
-                action={showGalery}
+                action={() => setShow(true)}
               />
             </div>
           )}
@@ -111,6 +112,13 @@ const ProjectPage: NextPage<Props> = ({ profile, banner, project }) => {
         title="Que hice"
         content={project.contributions}
         extraClass="my-4"
+      />
+
+      <ModalGallery
+        show={show}
+        close={() => setShow(false)}
+        title={project.name}
+        pictures={project.gallery}
       />
     </Layout>
   );

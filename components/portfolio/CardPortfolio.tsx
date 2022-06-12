@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { ProjectShort } from 'interfaces';
 import { Tag } from 'components/ui';
+import { ProjectShort } from 'interfaces';
 import styles from './CardPortfolio.module.css';
 
 interface Props {

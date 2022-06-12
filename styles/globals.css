@@ -70,6 +70,23 @@ body::-webkit-scrollbar-track {
   background-image: url('/images/contrast.webp');
 }
 
+.image-gallery-left-nav .image-gallery-svg,
+.image-gallery-right-nav .image-gallery-svg {
+  height: 80px !important;
+  width: 30px !important;
+  color: #fabf2b;
+}
+
+.image-gallery-thumbnail {
+  border: 1px solid #ccc !important;
+}
+
+.image-gallery-thumbnail.active,
+.image-gallery-thumbnail:focus {
+  outline: none;
+  border: 2px solid #fabf2b !important;
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px !important;

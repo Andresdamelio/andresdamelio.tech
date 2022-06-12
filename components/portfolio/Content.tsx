@@ -1,5 +1,6 @@
-import { Title } from 'components/ui';
 import { marked } from 'marked';
+
+import { Title } from 'components/ui';
 
 interface Props {
   title: string;
