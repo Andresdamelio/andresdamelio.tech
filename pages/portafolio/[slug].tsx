@@ -11,6 +11,7 @@ import { Content } from 'components/portfolio';
 import NextImage from 'next/image';
 import { useState } from 'react';
 import ModalGallery from '../../components/portfolio/ModalGallery';
+import { MetaTags } from 'components/seo';
 
 interface IParams extends ParsedUrlQuery {
   slug: string;
@@ -27,6 +28,14 @@ const ProjectPage: NextPage<Props> = ({ profile, banner, project }) => {
 
   return (
     <Layout banner={banner} profile={profile}>
+      <MetaTags
+        type="article"
+        title={project.name}
+        description={project.short_description}
+        url={`https://andresdamelio.tech/portafolio/${project.slug}`}
+        image={project.image.url}
+        alt={project.name}
+      />
       <Title type="h1" text={project.name} size="3xl" hasBorder={false} />
       <div className="mt-4 flex flex-col md:flex-row">
         <div className="mr-0 w-full py-2 md:mr-4 md:w-2/3">

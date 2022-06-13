@@ -9,6 +9,7 @@ import { api } from 'api';
 import { Title } from 'components/ui';
 import { CategoryList } from 'components/category';
 import { CardArticle } from 'components/blog';
+import { MetaTags } from 'components/seo';
 
 interface Props {
   profile: Profile;
@@ -38,6 +39,10 @@ const BlogPage: NextPage<Props> = ({
 
   return (
     <Layout banner={banner} profile={profile}>
+      <MetaTags
+        title="Andrés D'Amelio | Blog"
+        url="https://andresdamelio.tech/blog"
+      />
       <Title type="h1" text="Blog" size="3xl" hasBorder={true} />
       <section className="mt-8 flex flex-col flex-wrap md:flex-row">
         <CategoryList categories={categories} onSelect={handleFilter} />

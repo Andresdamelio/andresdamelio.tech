@@ -20,6 +20,7 @@ import {
   Profile,
   Resume,
 } from 'interfaces';
+import { MetaTags } from 'components/seo';
 
 interface Props {
   profile: Profile;
@@ -38,6 +39,10 @@ const Resume: NextPage<Props> = ({
 }) => {
   return (
     <Layout banner={banner} profile={profile}>
+      <MetaTags
+        title="Andrés D'Amelio | Resumen"
+        url="https://andresdamelio.tech/resumen"
+      />
       <Title type="h1" text="Resumen" size="3xl" hasBorder={true} />
       <section className="education mt-8">
         <Title

@@ -9,6 +9,7 @@ import { api } from 'api';
 import { Title } from 'components/ui';
 import { CardPortfolio } from 'components/portfolio';
 import { CategoryList } from 'components/category';
+import { MetaTags } from 'components/seo';
 
 interface Props {
   profile: Profile;
@@ -39,6 +40,10 @@ const PortfolioPage: NextPage<Props> = ({
 
   return (
     <Layout banner={banner} profile={profile}>
+      <MetaTags
+        title="Andrés D'Amelio | Portafolio"
+        url="https://andresdamelio.tech/portafolio"
+      />
       <Title type="h1" text="Portafolio" size="3xl" hasBorder={true} />
       <section className="mt-8 flex flex-col flex-wrap md:flex-row">
         <CategoryList categories={categories} onSelect={handleFilter} />

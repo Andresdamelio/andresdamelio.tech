@@ -10,6 +10,7 @@ import { Content } from 'components/blog';
 import { Article, Image, Profile } from 'interfaces';
 import { ShareSocialList, Title } from 'components/ui';
 import { getFormattedDate, getProfileInfo } from 'utils';
+import { MetaTags } from 'components/seo';
 
 interface IParams extends ParsedUrlQuery {
   slug: string;
@@ -30,6 +31,14 @@ const ArticlePage: NextPage<Props> = ({ profile, banner, post }) => {
           rel="stylesheet"
         />
       </Head>
+      <MetaTags
+        type="article"
+        title={post.title}
+        description={post.short_description}
+        url={`https://andresdamelio.tech/blog/${post.slug}`}
+        image={post.image.url}
+        alt={post.title}
+      />
       <Title type="h1" text={post.title} size="3xl" hasBorder={false} />
       <p className="mt-3 font-roboto text-sm font-thin text-gray-700 dark:text-white">
         Publicado el {getFormattedDate(post.created_at, 'large')}

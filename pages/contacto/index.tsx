@@ -9,6 +9,7 @@ import { useForm } from 'hooks/useForm';
 import { api } from 'api';
 import { useState } from 'react';
 import { ModalContact } from 'components/contact';
+import { MetaTags } from 'components/seo';
 
 interface Props {
   profile: Profile;
@@ -83,6 +84,10 @@ const ContactPage: NextPage<Props> = ({ banner, profile }) => {
 
   return (
     <Layout banner={banner} profile={profile}>
+      <MetaTags
+        title="Andrés D'Amelio | Contacto"
+        url="https://andresdamelio.tech/contacto"
+      />
       <>
         {error && (
           <div
@@ -96,98 +101,98 @@ const ContactPage: NextPage<Props> = ({ banner, profile }) => {
             </span>
           </div>
         )}
-        <div className="relative mt-8 flex flex-col md:flex-row md:py-8">
-          <div className="relative mb-4 w-full md:w-1/3">
-            <NextImage
-              src="/images/contact-form.svg"
-              alt="Ilustration contact form"
-              layout="fill"
-            />
-          </div>
-          <div className="border-black w-full md:w-2/3">
-            <div className="form-contact md:p-4">
-              <div className="flex flex-col md:flex-row">
-                <div className="input-form mr-4 mb-4 w-full md:w-1/2">
-                  <Input
-                    tag="input"
-                    type="text"
-                    placeholder="Nombre"
-                    ariaLabel="Nombre"
-                    value={values.name}
-                    name="name"
-                    changeHandler={handleChange}
-                  />
-                  {errorsList.name && (
-                    <span className="text-sm font-normal text-red-600 dark:text-red-300">
-                      {errorsList.name}
-                    </span>
-                  )}
-                </div>
-                <div className="input-form mb-4 w-full md:w-1/2">
-                  <Input
-                    tag="input"
-                    type="email"
-                    placeholder="Correo"
-                    ariaLabel="Correo"
-                    value={values.email}
-                    name="email"
-                    changeHandler={handleChange}
-                  />
-                  {errorsList.email && (
-                    <span className="text-sm font-normal text-red-600 dark:text-red-300">
-                      {errorsList.email}
-                    </span>
-                  )}
-                </div>
-              </div>
-              <div className="input-form mb-4 w-full">
+      </>
+      <div className="relative mt-8 flex flex-col md:flex-row md:py-8">
+        <div className="relative mb-4 w-full md:w-1/3">
+          <NextImage
+            src="/images/contact-form.svg"
+            alt="Ilustration contact form"
+            layout="fill"
+          />
+        </div>
+        <div className="border-black w-full md:w-2/3">
+          <div className="form-contact md:p-4">
+            <div className="flex flex-col md:flex-row">
+              <div className="input-form mr-4 mb-4 w-full md:w-1/2">
                 <Input
                   tag="input"
                   type="text"
-                  placeholder="Asunto"
-                  ariaLabel="Asunto"
-                  value={values.subject}
-                  name="subject"
+                  placeholder="Nombre"
+                  ariaLabel="Nombre"
+                  value={values.name}
+                  name="name"
                   changeHandler={handleChange}
                 />
-                {errorsList.subject && (
+                {errorsList.name && (
                   <span className="text-sm font-normal text-red-600 dark:text-red-300">
-                    {errorsList.subject}
+                    {errorsList.name}
                   </span>
                 )}
               </div>
-              <div className="input-form mb-4 w-full">
+              <div className="input-form mb-4 w-full md:w-1/2">
                 <Input
-                  tag="textarea"
-                  type=""
-                  placeholder="Mensaje"
-                  ariaLabel="Escribe tu mensaje"
-                  value={values.message}
-                  name="message"
+                  tag="input"
+                  type="email"
+                  placeholder="Correo"
+                  ariaLabel="Correo"
+                  value={values.email}
+                  name="email"
                   changeHandler={handleChange}
-                  properties={{ rows: 5 }}
                 />
-                {errorsList.message && (
+                {errorsList.email && (
                   <span className="text-sm font-normal text-red-600 dark:text-red-300">
-                    {errorsList.message}
+                    {errorsList.email}
                   </span>
                 )}
               </div>
-              <div className="mt-8 flex justify-center">
-                <Button
-                  text="Enviar"
-                  hasIcon={true}
-                  icon="send-1"
-                  type="action"
-                  action={() => handleSubmit()}
-                />
-              </div>
+            </div>
+            <div className="input-form mb-4 w-full">
+              <Input
+                tag="input"
+                type="text"
+                placeholder="Asunto"
+                ariaLabel="Asunto"
+                value={values.subject}
+                name="subject"
+                changeHandler={handleChange}
+              />
+              {errorsList.subject && (
+                <span className="text-sm font-normal text-red-600 dark:text-red-300">
+                  {errorsList.subject}
+                </span>
+              )}
+            </div>
+            <div className="input-form mb-4 w-full">
+              <Input
+                tag="textarea"
+                type=""
+                placeholder="Mensaje"
+                ariaLabel="Escribe tu mensaje"
+                value={values.message}
+                name="message"
+                changeHandler={handleChange}
+                properties={{ rows: 5 }}
+              />
+              {errorsList.message && (
+                <span className="text-sm font-normal text-red-600 dark:text-red-300">
+                  {errorsList.message}
+                </span>
+              )}
+            </div>
+            <div className="mt-8 flex justify-center">
+              <Button
+                text="Enviar"
+                hasIcon={true}
+                icon="send-1"
+                type="action"
+                action={() => handleSubmit()}
+              />
             </div>
           </div>
         </div>
-        {loading && <Loader opacity="bg-opacity-80 dark:bg-opacity-90" />}
-        <ModalContact show={show} close={() => setShow(false)} />
-      </>
+      </div>
+      <>{loading && <Loader opacity="bg-opacity-80 dark:bg-opacity-90" />}</>
+      <ModalContact show={show} close={() => setShow(false)} />
     </Layout>
   );
 };

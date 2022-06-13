@@ -51,7 +51,7 @@ MetaTags.defaultProps = {
   url: 'https://andresdamelio.tech',
   image:
     'https://res.cloudinary.com/dbo1xysmj/image/upload/v1620008296/opengraph_50d38bd52b.png',
-  alt: "Andres D'Amelio",
+  alt: "Andrés D'Amelio | Frontend Developer",
   type: 'website',
 };
 
