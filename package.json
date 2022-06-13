@@ -26,6 +26,7 @@
     "marked": "^4.0.16",
     "nanoid": "^3.3.4",
     "next": "latest",
+    "next-seo": "^5.4.0",
     "next-themes": "^0.1.1",
     "prismjs": "^1.28.0",
     "react": "^17.0.2",

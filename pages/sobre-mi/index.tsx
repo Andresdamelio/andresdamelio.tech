@@ -5,6 +5,7 @@ import { api } from 'api';
 import { Layout } from 'layout';
 import { getProfileInfo } from 'utils';
 import { Title } from 'components/ui';
+import { MetaTags } from 'components/seo';
 import { CardAbout } from 'components/about';
 import { About, Image, Profile } from 'interfaces';
 
@@ -17,6 +18,11 @@ interface Props {
 const AboutPage: NextPage<Props> = ({ banner, profile, about }) => {
   return (
     <Layout banner={banner} profile={profile}>
+      <MetaTags
+        title="Andrés D'Amelio | Sobre mí"
+        description={about.about}
+        url="https://andresdamelio.tech/sobre-mi"
+      />
       <Title type="h1" text="Sobre mi" size="3xl" hasBorder={true} />
       <div className="about-me">
         <p className="my-4 text-justify font-roboto text-lg font-light text-black-200 dark:text-white">
