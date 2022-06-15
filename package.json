@@ -6,7 +6,8 @@
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write .",
-    "lint": "eslint . --ext ts --ext tsx --ext js"
+    "lint": "eslint . --ext ts --ext tsx --ext js",
+    "postbuild": "next-sitemap"
   },
   "husky": {
     "hooks": {
@@ -27,6 +28,7 @@
     "nanoid": "^3.3.4",
     "next": "latest",
     "next-seo": "^5.4.0",
+    "next-sitemap": "^3.0.5",
     "next-themes": "^0.1.1",
     "prismjs": "^1.28.0",
     "react": "^17.0.2",

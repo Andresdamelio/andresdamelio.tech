@@ -1,0 +1,8 @@
+# *
+User-agent: *
+
+# Host
+Host: https://andresdamelio.tech/
+
+# Sitemaps
+Sitemap: https://andresdamelio.tech/sitemap.xml
