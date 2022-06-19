@@ -17,6 +17,7 @@ const ToggleButton = () => {
           : ' light-selected bg-gradient-to-r from-indigo-700 to-gray-900')
       }
       onClick={changeMode}
+      aria-label="toggle"
     >
       <div
         className={
