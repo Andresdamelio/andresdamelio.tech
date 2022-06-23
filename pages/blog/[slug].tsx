@@ -60,8 +60,8 @@ const ArticlePage: NextPage<Props> = ({ profile, banner, post }) => {
         <DiscussionEmbed
           shortname="andres-damelio"
           config={{
-            url: `/blog/${post.slug}`,
-            identifier: `/blog/${post.slug}`,
+            url: `https://andresdamelio.tech/blog/${post.slug}`,
+            identifier: post.title,
             title: post.title,
             language: 'es_ES',
           }}
