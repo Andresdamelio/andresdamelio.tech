@@ -7,10 +7,10 @@ import { DiscussionEmbed } from 'disqus-react';
 import { api } from 'api';
 import { Layout } from 'layout';
 import { Content } from 'components/blog';
+import { MetaTags } from 'components/seo';
 import { Article, Image, Profile } from 'interfaces';
 import { ShareSocialList, Title } from 'components/ui';
-import { getFormattedDate, getProfileInfo } from 'utils';
-import { MetaTags } from 'components/seo';
+import { getFormattedDate, getProfileInfo, rgbDataURL } from 'utils';
 
 interface IParams extends ParsedUrlQuery {
   slug: string;
@@ -49,6 +49,8 @@ const ArticlePage: NextPage<Props> = ({ profile, banner, post }) => {
           src={post.image.url}
           alt={post.image.alternativeText}
           className="h-full w-full rounded-2xl"
+          placeholder="blur"
+          blurDataURL={rgbDataURL(106, 114, 128)}
         />
       </div>
       <ShareSocialList padding="pt-4 pb-6" />

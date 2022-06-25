@@ -3,7 +3,7 @@ import NextImage from 'next/image';
 
 import { Layout } from 'layout';
 import { Image, ObjectAny, Profile } from 'interfaces';
-import { getProfileInfo } from 'utils';
+import { getProfileInfo, rgbDataURL } from 'utils';
 import { Button, Input, Loader } from 'components/ui';
 import { useForm } from 'hooks/useForm';
 import { api } from 'api';
@@ -108,6 +108,8 @@ const ContactPage: NextPage<Props> = ({ banner, profile }) => {
             src="/images/contact-form.svg"
             alt="Ilustration contact form"
             layout="fill"
+            placeholder="blur"
+            blurDataURL={rgbDataURL(106, 114, 128)}
           />
         </div>
         <div className="border-black w-full md:w-2/3">

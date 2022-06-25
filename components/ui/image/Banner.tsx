@@ -1,6 +1,7 @@
 import NextImage from 'next/image';
 
 import { Image } from 'interfaces';
+import { rgbDataURL } from 'utils';
 import { ToggleButton } from 'components/ui';
 
 interface Props {
@@ -17,6 +18,8 @@ const Banner = ({ banner }: Props) => {
         layout="fill"
         className="h-full w-full object-cover opacity-70"
         priority
+        placeholder="blur"
+        blurDataURL={rgbDataURL(106, 114, 128)}
       />
     </div>
   );

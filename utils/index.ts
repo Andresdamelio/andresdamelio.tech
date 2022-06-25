@@ -4,4 +4,5 @@ export * from './format';
 export * from './destruct';
 export * from './getClass';
 export * from './menuItems';
+export * from './placeholder';
 export * from './getProfileInfo';

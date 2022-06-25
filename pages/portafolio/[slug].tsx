@@ -3,7 +3,7 @@ import { ParsedUrlQuery } from 'querystring';
 
 import { api } from 'api';
 import { Layout } from 'layout';
-import { getFormattedDate, getProfileInfo } from 'utils';
+import { getFormattedDate, getProfileInfo, rgbDataURL } from 'utils';
 import { Button, ShareSocialList, Tag, Title } from 'components/ui';
 import { Image, Profile, Project } from 'interfaces';
 import { nanoid } from 'nanoid';
@@ -46,6 +46,8 @@ const ProjectPage: NextPage<Props> = ({ profile, banner, project }) => {
                 src={project.image.url}
                 alt={project.image.alternativeText}
                 className="h-full w-full rounded-2xl"
+                placeholder="blur"
+                blurDataURL={rgbDataURL(106, 114, 128)}
               />
             </div>
             <ShareSocialList padding="py-3" />

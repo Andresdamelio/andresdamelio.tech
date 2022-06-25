@@ -1,3 +1,7 @@
+:root {
+  color-scheme: light dark;
+}
+
 html,
 body {
   font-size: 15px;
@@ -85,6 +89,14 @@ body::-webkit-scrollbar-track {
 .image-gallery-thumbnail:focus {
   outline: none;
   border: 2px solid #fabf2b !important;
+}
+
+.light iframe {
+  color-scheme: dark;
+}
+
+.dark iframe {
+  color-scheme: light;
 }
 
 @media (min-width: 576px) {

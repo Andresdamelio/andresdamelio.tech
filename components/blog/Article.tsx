@@ -1,11 +1,11 @@
-import Image from 'next/image';
+import NextImage from 'next/image';
 import Link from 'next/link';
 
 import { CommentCount } from 'disqus-react';
 
 import { Tag } from 'components/ui';
 import { Article } from 'interfaces';
-import { getFormattedDate } from 'utils';
+import { getFormattedDate, rgbDataURL } from 'utils';
 
 interface Props {
   article: Article;
@@ -17,12 +17,14 @@ const CardArticle = ({ article }: Props) => {
       <Link href={`/blog/${article.slug}`}>
         <a className="mb-4 block overflow-hidden rounded-lg bg-azure-100 shadow-md hover:shadow-xl dark:bg-white">
           <div className="relative h-auto md:h-36">
-            <Image
+            <NextImage
               layout="fill"
               className="h-full w-full"
               objectFit="cover"
               src={article.image.url}
               alt={article.image.alternativeText}
+              placeholder="blur"
+              blurDataURL={rgbDataURL(106, 114, 128)}
             />
           </div>
           <div className="card-body px-3 py-2">

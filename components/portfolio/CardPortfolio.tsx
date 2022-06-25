@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import NextImage from 'next/image';
 
+import { rgbDataURL } from 'utils';
 import { Tag } from 'components/ui';
 import { ProjectShort } from 'interfaces';
 import styles from './CardPortfolio.module.css';
@@ -23,12 +24,14 @@ const CardPortfolio = ({ project }: Props) => {
             styles.work
           }
         >
-          <Image
+          <NextImage
             layout="fill"
             className="h-full w-full"
             objectFit="cover"
             src={project.thumbnail.url}
             alt={project.thumbnail.alternativeText}
+            placeholder="blur"
+            blurDataURL={rgbDataURL(106, 114, 128)}
           />
           <div
             className={
