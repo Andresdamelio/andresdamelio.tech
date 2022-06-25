@@ -15,8 +15,8 @@ export default async (req: NextApiRequest, res: ApiResponse) => {
   try {
     const staticPaths = await getPostPaths({});
 
-    const revalidatePostPaths = staticPaths.map(({ params }: ObjectAny) =>
-      res.unstable_revalidate(`/blog/${params.slug}`)
+    const revalidatePostPaths = (staticPaths.paths as ObjectAny[]).map(
+      ({ params: { slug } }) => res.unstable_revalidate(`/blog/${slug}`)
     );
 
     await Promise.all([
