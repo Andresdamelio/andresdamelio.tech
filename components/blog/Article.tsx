@@ -16,7 +16,7 @@ const CardArticle = ({ article }: Props) => {
     <div className="card post w-full py-2 px-0 md:w-1/3 md:px-3">
       <Link href={`/blog/${article.slug}`}>
         <a className="mb-4 block overflow-hidden rounded-lg bg-azure-100 shadow-md hover:shadow-xl dark:bg-white">
-          <div className="relative h-auto md:h-36">
+          <div className="relative h-40 md:h-36">
             <NextImage
               layout="fill"
               className="h-full w-full"

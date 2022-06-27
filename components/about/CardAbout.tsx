@@ -11,7 +11,7 @@ const CardAbout = ({ skill }: Props) => {
   return (
     <div className="w-full p-0 md:w-1/2 md:p-3">
       <div className="flex h-auto flex-col overflow-hidden rounded pb-4 md:h-32 md:flex-row">
-        <div className="w-full py-3 md:w-40">
+        <div className="flex w-full justify-center py-3 md:block md:w-40">
           <NextImage
             width="64"
             height="64"
