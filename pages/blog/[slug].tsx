@@ -81,7 +81,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: 'blocking',
+    fallback: false,
   };
 };
 
@@ -89,6 +89,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as IParams;
   const data = await getProfileInfo();
   const { data: post } = await api.get<Article[]>(`/posts?slug=${slug}`);
+
+  if (!post) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
