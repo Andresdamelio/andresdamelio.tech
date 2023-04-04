@@ -20,9 +20,12 @@ export default async (req: NextApiRequest, res: ApiResponse) => {
     const revalidatePostPaths = (staticPostPaths.paths as ObjectAny[]).map(
       ({ params: { slug } }) => res.unstable_revalidate(`/blog/${slug}`)
     );
+
     const revalidateProjectPaths = (
       staticProjectPaths.paths as ObjectAny[]
-    ).map(({ params: { slug } }) => res.unstable_revalidate(`/blog/${slug}`));
+    ).map(({ params: { slug } }) =>
+      res.unstable_revalidate(`/portafolio/${slug}`)
+    );
 
     await Promise.all([
       res.unstable_revalidate('/sobre-mi'),
@@ -36,6 +39,8 @@ export default async (req: NextApiRequest, res: ApiResponse) => {
 
     return res.status(200).json({ revalidated: true });
   } catch (err) {
-    return res.status(500).json({ message: 'Error validating' });
+    return res
+      .status(500)
+      .json({ message: 'Error validating', error: JSON.stringify(err) });
   }
 };

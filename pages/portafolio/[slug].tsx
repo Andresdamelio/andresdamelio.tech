@@ -150,6 +150,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const data = await getProfileInfo();
   const { data: project } = await api.get<Project[]>(`/projects?slug=${slug}`);
 
+  if (!project) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       profile: data?.profile,
